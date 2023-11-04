@@ -1,16 +1,17 @@
 import { useState } from "react"
-import { tasks } from "../tools/store"
+import { setLocalStorage, tasks } from "../tools/store"
 
 export const NewTask = () => {
 
     const [inputName, setInputName] = useState("")
     const [inputDescription, setInputDescription] = useState("")
     const [inputDate, setInputDate] = useState("")
+    const [inputTime, setInputTime] = useState("")
 
     const addTask = () => {
         const date = Date.now().toString()
-        tasks.push({ name: inputName, description: inputDescription, date: inputDate, completed: false, id: date })
-        localStorage.setItem("tasks", JSON.stringify(tasks))
+        tasks.push({ name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date })
+        setLocalStorage(tasks)
     }
 
     return (
@@ -26,6 +27,11 @@ export const NewTask = () => {
                 <label>
                     <input type="date" onChange={(e) => setInputDate(e.target.value)} />
                 </label>
+
+                <label>
+                    <input type="time" onChange={(e) => setInputTime(e.target.value)} />
+                </label>
+
                 <button onClick={() => {
                     addTask()
                 }}>add task</button>

@@ -17,9 +17,6 @@ export const Todo = () => {
             <TaskElement task={element} key={element.id} />
         ));
     }
-
-
-
     return (
         <div className="todo-container">
 
@@ -34,29 +31,15 @@ export const Todo = () => {
                 </div>
             </div>
 
-
-
             <div className="todo-body">
-                <table>
-                    <thead>
-                        <tr>
-                            <td className="table__name">name</td>
-                            <td className="table__description">description</td>
-                            <td className="table__deadline">deadline</td>
-                            <td className="table__isCompleted">is completed?</td>
-                            
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {loadTasks()}
-                    </tbody>
-                </table>
+                <div className="todo-column">
+                    <div className="todo-column__isCompleted">done</div>
+                    <div className="todo-column__name">name</div>
+                    <div className="todo-column__description">description</div>
+                    <div className="todo-column__deadline">deadline</div>
+                </div>
+                {loadTasks()}
             </div>
-
-
-
-
 
         </div>
     )

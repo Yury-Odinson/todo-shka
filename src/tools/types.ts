@@ -12,6 +12,7 @@ export type Task = {
     name: string,
     description: string,
     date: string,
+    time: string,
     completed: boolean,
     id: string
 }
