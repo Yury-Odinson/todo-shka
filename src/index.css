@@ -27,7 +27,13 @@ code {
 
 .wrapper {
   margin: 0 auto;
+  display: flex;
   border: 1px solid red;
   max-width: 1440px;
   height: 500px;
+}
+
+.auth-container {
+  margin: 100px auto;
+  border: 1px solid red;
 }
