@@ -4,9 +4,6 @@ const userAuthURL = "https://studapi.teachmeskills.by/auth/jwt/create/"
 const userRefreshToken = "https://studapi.teachmeskills.by//auth/jwt/refresh/"
 
 
-export let tokenAccess = localStorage.getItem("tokenAccess") || ""
-export let tokenRefresh = localStorage.getItem("tokenRefresh") || ""
-
 // get user tokens
 export const authUser = async (user: AuthUser) => {
     const authURL = new URL(userAuthURL)

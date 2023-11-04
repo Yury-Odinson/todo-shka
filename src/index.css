@@ -26,7 +26,7 @@ code {
 }
 
 .wrapper {
-  margin: 0 auto;
+  margin: 60px auto;
   display: flex;
   border: 1px solid red;
   max-width: 1440px;
@@ -35,5 +35,46 @@ code {
 
 .auth-container {
   margin: 100px auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.todo-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #80858B;
+  height: 60px;
+}
+
+.todo-header-wrapper {
+  margin: 0 auto;
+  display: flex;
+  max-width: 1440px;
+  height: 100%;
+}
+
+.new-task-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.3;
+}
+
+.new-task {
+  padding: 50px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #fff;
 }
