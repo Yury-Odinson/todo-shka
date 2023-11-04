@@ -8,7 +8,8 @@ export const NewTask = () => {
     const [inputDate, setInputDate] = useState("")
 
     const addTask = () => {
-        tasks.push({ name: inputName, description: inputDescription, date: inputDate, completed: false })
+        const date = Date.now().toString()
+        tasks.push({ name: inputName, description: inputDescription, date: inputDate, completed: false, id: date })
         localStorage.setItem("tasks", JSON.stringify(tasks))
     }
 

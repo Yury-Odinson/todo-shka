@@ -78,3 +78,34 @@ code {
   transform: translate(-50%);
   background-color: #fff;
 }
+
+
+.todo-item {
+  /* display: flex; */
+  /* gap: 40px; */
+  /* border: 1px solid red; */
+}
+
+table {
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+tr {
+  display: flex;
+}
+
+td {
+  margin: 10px 0;
+}
+
+.table__name {
+  width: 20%;
+}
+.table__description {
+  width: 60%;
+}
+.table__deadline,
+.table__isCompleted {
+  width: 10%;
+}
