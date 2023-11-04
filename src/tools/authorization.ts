@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AuthUser, NewTokens } from "./types";
 
 const userAuthURL = "https://studapi.teachmeskills.by/auth/jwt/create/"
