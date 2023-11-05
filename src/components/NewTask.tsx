@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { setLocalStorage, tasks } from "../tools/store"
+import { useContext, useState } from "react"
+import { TaskContext, setLocalStorage } from "../tools/store"
 
 export const NewTask = () => {
 
@@ -8,9 +8,14 @@ export const NewTask = () => {
     const [inputDate, setInputDate] = useState("")
     const [inputTime, setInputTime] = useState("")
 
+    const { tasks } = useContext(TaskContext)
+    const { setTasks } = useContext(TaskContext)
+
     const addTask = () => {
         const date = Date.now().toString()
-        tasks.push({ name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date })
+        const task = { name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date }
+        tasks.push(task)
+        setTasks(tasks)
         setLocalStorage(tasks)
     }
 

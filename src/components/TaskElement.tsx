@@ -1,5 +1,6 @@
-import { setLocalStorage, tasks } from "../tools/store";
+import { useContext } from "react";
 import { Task } from "../tools/types";
+import { TaskContext, setLocalStorage } from "../tools/store";
 
 export const TaskElement = (taskProps: { task: Task }) => {
 
@@ -10,11 +11,16 @@ export const TaskElement = (taskProps: { task: Task }) => {
         return `${day}.${month}.${year}`
     }
 
+    const { tasks } = useContext(TaskContext)
+    const { setTasks } = useContext(TaskContext)
+
 
     const removeTask = () => {
+        // console.log(tasks)
         const indexOf = tasks.indexOf(taskProps.task)
         console.log(tasks.indexOf(taskProps.task))
         tasks.splice(indexOf, 1)
+        setTasks(tasks)
         setLocalStorage(tasks)
     }
 
