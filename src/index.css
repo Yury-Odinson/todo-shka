@@ -1,6 +1,10 @@
 :root {
-  --Backgroung: #80858B;
-  --Primary: #7B61FF;
+  --Backgroung: #F5F5F5;
+  --Button: #F2F2F2;
+  --Item: #D3D3D3;
+  --Red: #FF3B30;
+  --Yellow: #FFCC00;
+  --Green: #4CD964;
 }
 
 * {
@@ -9,6 +13,7 @@
   padding: 0;
   scroll-behavior: smooth;
   transition: 0.2s;
+  /* background-color: var(--Backgroung); */
 }
 
 body {
@@ -49,7 +54,7 @@ code {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #80858B;
+  background-color: var(--Item);
   height: 60px;
 }
 
@@ -58,6 +63,11 @@ code {
   display: flex;
   max-width: 900px;
   height: 100%;
+  background-color: var(--Item);
+}
+
+.todo-heade__buttonAdd {
+  background-color: var(--Button);
 }
 
 .new-task-background {
@@ -83,39 +93,92 @@ code {
 
 .todo-item,
 .todo-column {
-  padding: 20px;
+  padding: 30px 20px 20px;
   display: flex;
-  /* border: 1px solid red; */
-  background-color: #abe98e70;
+  /* background-color: var(--Item); */
 }
 
 .todo-item {
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.todo-body {
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #F2F2F2;
+}
+
+.todo-item {
+  display: flex;
+  gap: 10px;
   margin: 20px 0;
   position: relative;
 }
 
-.table__name,
-.todo-column__name {
-  width: 15%;
+.todo-column__isCompleted {
+  width: 5%;
 }
 
-.table__description,
+.todo-column__name {
+  width: 20%;
+}
+
 .todo-column__description {
   width: 55%;
 }
 
-.table__deadline,
 .todo-column__deadline {
+  position: relative;
   width: 20%;
 }
 
-.table__isCompleted,
-.todo-column__isCompleted {
-  width: 10%;
+.todo-column__deadlineHelp {
+  position: absolute;
+  top: -15px;
+  left: 10%;
+  font-size: 12px;
+  color: #00000063;
 }
 
-.todo-item__date {
+.todo-item__dateCreate {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.item-button__edit,
+.item-button__remove {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--Yellow);
+  background-image: url(./image/icons8-edit-64.png);
+  background-size: cover;
+}
+
+.item-button__remove {
+  right: 5px;
+  background-color: var(--Red);
+  background-image: url(./image/icons8-close-50.png);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+input {
+  padding: 0 10px;
+  border: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }

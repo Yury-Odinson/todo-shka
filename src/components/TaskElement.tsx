@@ -25,8 +25,10 @@ export const TaskElement = (taskProps: { task: Task }) => {
     const indexOf = tasks.indexOf(taskProps.task)   // declarate index task on the array
 
     const removeTask = () => {
+        console.log(tasks)
         tasks.splice(indexOf, 1)
-        setTasks(tasks)
+        console.log(tasks)
+        setTasks([...tasks])
         setLocalStorage(tasks)
     }
 
@@ -58,18 +60,19 @@ export const TaskElement = (taskProps: { task: Task }) => {
 
     return (
         <div className="todo-item">
-            <div className="table__isCompleted">
+            <div className="todo-column__isCompleted">
                 <input type="checkbox" checked={completed} onChange={() => changeCompleted()} />
             </div>
-            <input className="table__name" readOnly={readOnly} value={name} onChange={(e) => setName(e.target.value)} />
-            <input className="table__description" readOnly={readOnly} value={description} onChange={(e) => setDescription(e.target.value)} />
-            <div className="table__deadline">
-                <input type="date" value={date} readOnly={readOnly} onChange={(e) => setDate(e.target.value)} />
-                <input type="time" value={time} readOnly={readOnly} onChange={(e) => setTime(e.target.value)} />
+            <input className="todo-column__name" readOnly={readOnly} value={name} onChange={(e) => setName(e.target.value)} />
+            <input className="todo-column__description" readOnly={readOnly} value={description} onChange={(e) => setDescription(e.target.value)} />
+            <div className="todo-column__deadline">
+                {/* <span className="todo-column__deadlineHelp">must be done before</span> */}
+                <input className="todo-item__date" type="date" value={date} readOnly={readOnly} onChange={(e) => setDate(e.target.value)} />
+                <input className="todo-item__time" type="time" value={time} readOnly={readOnly} onChange={(e) => setTime(e.target.value)} />
             </div>
-            <button onClick={() => removeTask()}>X</button>
-            <button onClick={() => editTask()}>change</button>
-            <span className="todo-item__date">task create: {getTaskDate()}</span>
+            <button className="item-button__edit" onClick={() => editTask()} />
+            <button className="item-button__remove" onClick={() => removeTask()} />
+            {/* <span className="todo-item__dateCreate">task create: {getTaskDate()}</span> */}
         </div>
     )
 }

@@ -15,7 +15,7 @@ export const NewTask = () => {
         const date = Date.now().toString()
         const task = { name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date }
         tasks.push(task)
-        setTasks(tasks)
+        setTasks([...tasks])
         setLocalStorage(tasks)
     }
 
