@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Task } from "../tools/types";
 import { TaskContext, setLocalStorage } from "../tools/store";
 
 export const TaskElement = (taskProps: { task: Task }) => {
+
+    const [completed, setCompleted] = useState<boolean>(taskProps.task.completed)
 
     const getTaskDate = () => {
         const day = new Date(Number(taskProps.task.id)).getDate()
@@ -14,19 +16,23 @@ export const TaskElement = (taskProps: { task: Task }) => {
     const { tasks } = useContext(TaskContext)
     const { setTasks } = useContext(TaskContext)
 
+    const indexOf = tasks.indexOf(taskProps.task)
 
     const removeTask = () => {
-        // console.log(tasks)
-        const indexOf = tasks.indexOf(taskProps.task)
-        console.log(tasks.indexOf(taskProps.task))
         tasks.splice(indexOf, 1)
+        setTasks(tasks)
+        setLocalStorage(tasks)
+    }
+
+    const changeCompleted = () => {
+        setCompleted(tasks[indexOf].completed = !completed)
         setTasks(tasks)
         setLocalStorage(tasks)
     }
 
     return (
         <div className="todo-item">
-            <div className="table__isCompleted"><input type="checkbox" /></div>
+            <div className="table__isCompleted"><input type="checkbox" checked={completed} onChange={() => changeCompleted()} /></div>
             <div className="table__name">{taskProps.task.name}</div>
             <div className="table__description">{taskProps.task.description}</div>
             <div className="table__deadline">

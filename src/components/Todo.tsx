@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { checkToken } from "../tools/authorization"
 import { TaskContext, tokenRefresh } from "../tools/store"
 import { NewTask } from "./NewTask"
@@ -8,7 +8,6 @@ import { Task } from "../tools/types"
 export const Todo = () => {
 
     const [modalOpen, setModalOpen] = useState(false)
-    // const [tasks, setTasks] = useState<Task[]>([])
 
     const { tasks } = useContext(TaskContext)
 
@@ -16,12 +15,6 @@ export const Todo = () => {
         setModalOpen(!modalOpen)
     }
 
-
-    const loadTasks = () => {
-        return tasks.map(element => (
-            <TaskElement task={element} key={element.id} />
-        ));
-    }
     return (
         <div className="todo-container">
 
@@ -43,7 +36,9 @@ export const Todo = () => {
                     <div className="todo-column__description">description</div>
                     <div className="todo-column__deadline">deadline</div>
                 </div>
-                {loadTasks()}
+                {tasks.map(element => (
+                    <TaskElement task={element} key={element.id} />
+                ))}
             </div>
 
         </div>

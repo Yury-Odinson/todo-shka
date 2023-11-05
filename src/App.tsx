@@ -14,7 +14,7 @@ function App() {
     setTasks(data)
   }, [])
 
-  console.log("update app.tsx")
+  // console.log("update app.tsx")
 
   return (
     <TaskContext.Provider value={{ tasks, setTasks }}>
