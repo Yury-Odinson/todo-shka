@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Task } from "../tools/types";
-import { TaskContext, setLocalStorage } from "../tools/store";
+import { TaskContext, setLocalStorage, tokenRefresh } from "../tools/store";
+import { checkToken } from "../tools/authorization";
 
 export const TaskElement = (taskProps: { task: Task }) => {
 
@@ -56,6 +57,7 @@ export const TaskElement = (taskProps: { task: Task }) => {
         // write changes in the context & update localStorage
         setTasks(tasks)
         setLocalStorage(tasks)
+        checkToken(tokenRefresh)
     }
 
     return (
@@ -63,8 +65,17 @@ export const TaskElement = (taskProps: { task: Task }) => {
             <div className="todo-column__isCompleted">
                 <input type="checkbox" checked={completed} onChange={() => changeCompleted()} />
             </div>
-            <input className="todo-column__name" readOnly={readOnly} value={name} onChange={(e) => setName(e.target.value)} />
-            <input className="todo-column__description" readOnly={readOnly} value={description} onChange={(e) => setDescription(e.target.value)} />
+            <label className="todo-column__name">
+                <span className="todo-column__Clue">name</span>
+                <input readOnly={readOnly} value={name} onChange={(e) => setName(e.target.value)} />
+            </label>
+
+            <label className="todo-column__description">
+                <span className="todo-column__Clue">description</span>
+                <input readOnly={readOnly} value={description} onChange={(e) => setDescription(e.target.value)} />
+            </label>
+
+
             <div className="todo-column__deadline">
                 {/* <span className="todo-column__deadlineHelp">must be done before</span> */}
                 <input className="todo-item__date" type="date" value={date} readOnly={readOnly} onChange={(e) => setDate(e.target.value)} />

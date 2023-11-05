@@ -13,7 +13,6 @@
   padding: 0;
   scroll-behavior: smooth;
   transition: 0.2s;
-  /* background-color: var(--Backgroung); */
 }
 
 body {
@@ -33,14 +32,11 @@ code {
 .wrapper {
   margin: 60px auto;
   display: flex;
-  /* border: 1px solid red; */
   max-width: 900px;
-  /* height: 500px; */
 }
 
 .auth-container {
   margin: 100px auto;
-  /* border: 1px solid red; */
 }
 
 .todo-container {
@@ -91,11 +87,9 @@ code {
 }
 
 
-.todo-item,
-.todo-column {
+.todo-item {
   padding: 30px 20px 20px;
   display: flex;
-  /* background-color: var(--Item); */
 }
 
 .todo-item {
@@ -106,8 +100,8 @@ code {
 }
 
 .todo-body {
-  margin: 20px auto;
-  padding: 10px;
+  margin: 20px 0;
+  padding: 10px 20px;
   border-radius: 20px;
   background-color: #F2F2F2;
 }
@@ -124,11 +118,24 @@ code {
 }
 
 .todo-column__name {
-  width: 20%;
+  position: relative;
+}
+
+.todo-column__name>input {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
 }
 
 .todo-column__description {
+  position: relative;
   width: 55%;
+}
+
+.todo-column__description>input {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
 }
 
 .todo-column__deadline {
@@ -172,11 +179,33 @@ code {
   background-repeat: no-repeat;
 }
 
+.todo-column__Clue {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 14px;
+  color: #00000070;
+}
+
+.todo-item__date,
+.todo-item__time {
+  width: 120px;
+  border-radius: 6px;
+}
+
+.todo-item__time {
+  text-align: center;
+}
+
+
 
 input {
   padding: 0 10px;
   border: none;
+  border: 1px solid #00000010;
+  background-color: #00000000;
 }
+
 
 button {
   border: none;

@@ -29,12 +29,6 @@ export const Todo = () => {
             </div>
 
             <div className="todo-body">
-                <div className="todo-column">
-                    <div className="todo-column__isCompleted">done</div>
-                    <div className="todo-column__name">name</div>
-                    <div className="todo-column__description">description</div>
-                    <div className="todo-column__deadline">deadline</div>
-                </div>
                 {tasks.map(element => (
                     <TaskElement task={element} key={element.id} />
                 ))}
