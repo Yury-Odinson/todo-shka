@@ -92,13 +92,60 @@ code {
 }
 
 .new-task {
-  padding: 50px;
+  padding: 40px 30px 30px;
   position: absolute;
   top: 100px;
   left: 50%;
   transform: translate(-50%);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
   background-color: #fff;
+  border-radius: 10px;
   z-index: 2;
+}
+
+.new-task__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--Red);
+  background-image: url(./image/icons8-close-50.png);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.new-task-label {
+  position: relative;
+  width: 300px;
+}
+
+.new-task-label>input {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: var(--Backgroung);
+}
+
+.new-task-label>input[type="date"],
+.new-task-label>input[type="time"] {
+  text-align: center;
+}
+
+.new-task__button {
+  background-color: var(--halfYellow);
+  height: 50px;
+  transition: 0.4s;
+}
+
+.new-task__button:hover {
+  background-color: var(--Yellow);
+  transition: 0.4s;
 }
 
 .todo-item {
