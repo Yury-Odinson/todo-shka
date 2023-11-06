@@ -4,7 +4,9 @@
   --Item: #D3D3D3;
   --Red: #FF3B30;
   --Yellow: #FFCC00;
+  --halfYellow: #ffcc0046;
   --Green: #4CD964;
+  --quarterBlue: #007bff31;
 }
 
 * {
@@ -114,6 +116,7 @@ code {
 }
 
 .todo-column__isCompleted {
+  position: relative;
   width: 5%;
 }
 
@@ -197,7 +200,13 @@ code {
   text-align: center;
 }
 
+.editItem {
+  background-color: var(--halfYellow);
+}
 
+.completedItem {
+  background-color: var(--quarterBlue);
+}
 
 input {
   padding: 0 10px;
@@ -210,4 +219,40 @@ input {
 button {
   border: none;
   cursor: pointer;
+}
+
+.defaultCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.customCheckbox::before {
+  content: "";
+  position: absolute;
+  background-image: url(./image/icons8-completed-30.png);
+  background-size: 0%;
+  background-repeat: no-repeat;
+  background-color: #FF3B30;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.defaultCheckbox:checked+.customCheckbox::before {
+  background-image: url(./image/icons8-completed-30.png);
+  background-position: center;
+  background-size: 70%;
+  background-color: #4CD964;
+  transition: 0.2s;
 }

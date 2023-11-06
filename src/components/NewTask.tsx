@@ -32,11 +32,9 @@ export const NewTask = () => {
                 <label>
                     <input type="date" onChange={(e) => setInputDate(e.target.value)} />
                 </label>
-
                 <label>
                     <input type="time" onChange={(e) => setInputTime(e.target.value)} />
                 </label>
-
                 <button onClick={() => {
                     addTask()
                 }}>add task</button>

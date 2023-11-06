@@ -26,9 +26,7 @@ export const TaskElement = (taskProps: { task: Task }) => {
     const indexOf = tasks.indexOf(taskProps.task)   // declarate index task on the array
 
     const removeTask = () => {
-        console.log(tasks)
         tasks.splice(indexOf, 1)
-        console.log(tasks)
         setTasks([...tasks])
         setLocalStorage(tasks)
     }
@@ -60,10 +58,23 @@ export const TaskElement = (taskProps: { task: Task }) => {
         checkToken(tokenRefresh)
     }
 
+    const setEditClass = () => {
+        if (!readOnly) {
+            return " editItem"
+        } else return ""
+    }
+
+    const setCompletedClass = () => {
+        if (completed) {
+            return " completedItem"
+        } else return ""
+    }
+
     return (
-        <div className="todo-item">
+        <div className={"todo-item" + setEditClass() + setCompletedClass()}>
             <div className="todo-column__isCompleted">
-                <input type="checkbox" checked={completed} onChange={() => changeCompleted()} />
+                <input className="defaultCheckbox" type="checkbox" checked={completed} onChange={() => changeCompleted()} />
+                <div className="customCheckbox" onClick={() => changeCompleted()}></div>
             </div>
             <label className="todo-column__name">
                 <span className="todo-column__Clue">name</span>
