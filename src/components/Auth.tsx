@@ -9,7 +9,7 @@ export const Auth = () => {
     const [password, setPassword] = useState<string>("P@ssw0rd!")
 
     const navigate = useNavigate()
-    
+
     // check login & password. if log/pass = true => link *****/todo
     const handlerLogin = async ({ email, password }: AuthUser) => {
         const tokens = await authUser({ email, password })
@@ -23,14 +23,24 @@ export const Auth = () => {
 
     return (
         <div className="auth-container">
-            <label>
+            <p className="HowToUse">
+                <p>Autorization is worked! Default state contains correct email and password.
+                    Everything you need to do - press button "Let me in!"
+                    If you change value in the input - you set incorrect data and you authorization will be failed.
+                </p>
+                <p>авторизация рабочая. в стейт уже вбит корректный email и пароль.
+                    всё, что нужно сделать - нажить кнопку "Let me in!"
+                    при любом изменении в инпутах - стейт изменится, соответственно авторизация не пройдёт успешно.
+                </p>
+            </p>
+            <label className="auth-label">
                 <input type="text" placeholder="enter email" onChange={(e) => setEmail(e.target.value)} />
             </label>
-            <label>
+            <label className="auth-label">
                 <input type="text" placeholder="enter pass" onChange={(e) => setPassword(e.target.value)} />
             </label>
-            <label>
-                <button onClick={() => handlerLogin({ email, password })}>login</button>
+            <label className="auth-label">
+                <button onClick={() => handlerLogin({ email, password })}>Let me in!</button>
             </label>
         </div>
     )

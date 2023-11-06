@@ -39,6 +39,45 @@ code {
 
 .auth-container {
   margin: 100px auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--Button);
+  border-radius: 10px;
+}
+
+.auth-label {
+  width: 300px;
+}
+
+.auth-label>input {
+  width: 100%;
+  height: 40px;
+  /* background-color: #fff; */
+  border: 1px solid var(--Item);
+  border-radius: 6px;
+}
+
+.auth-label>button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--quarterBlue);
+  border-radius: 6px;
+}
+
+.HowToUse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 500px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.HowToUse>* {
+  padding: 10px 0;
 }
 
 .todo-container {
@@ -164,7 +203,7 @@ code {
   margin: 20px 0;
   padding: 10px 20px;
   border-radius: 20px;
-  background-color: #F2F2F2;
+  background-color: var(--Button);
 }
 
 .todo-item {
