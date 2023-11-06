@@ -17,6 +17,7 @@ export type Task = {
     time: string,
     completed: boolean,
     id: string
+    dateCreate: string
 }
 
 export type ContextTasks = {

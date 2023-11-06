@@ -13,11 +13,11 @@ export const TaskElement = (taskProps: { task: Task }) => {
     const [date, setDate] = useState(taskProps.task.date)
     const [time, setTime] = useState(taskProps.task.time)
 
-    const getTaskDate = () => {
-        const day = new Date(Number(taskProps.task.id)).getDate()
-        const month = new Date(Number(taskProps.task.id)).getMonth() + 1
-        const year = new Date(Number(taskProps.task.id)).getFullYear()
-        return `${day}.${month}.${year}`
+    const getTaskDate = (value: string) => {
+        const fullDate = new Date(Number(value))
+        const date = fullDate.toLocaleDateString()
+        const time = fullDate.toLocaleTimeString()
+        return `${date} ${time}`
     }
 
     const { tasks } = useContext(TaskContext)       // tasks array in the context
@@ -99,7 +99,7 @@ export const TaskElement = (taskProps: { task: Task }) => {
             </div>
             <button className="item-button__edit" onClick={() => editTask()} />
             <button className="item-button__remove" onClick={() => removeTask()} />
-            <span className="todo-item__dateCreate">task create: {getTaskDate()}</span>
+            <span className="todo-item__dateCreate">task create: {getTaskDate(taskProps.task.dateCreate)}</span>
         </div>
     )
 }

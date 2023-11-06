@@ -14,7 +14,7 @@ export const NewTask = ({ isOpen }: NewTaskProps) => {
 
     const addTask = () => {
         const date = Date.now().toString()
-        const task = { name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date }
+        const task = { name: inputName, description: inputDescription, date: inputDate, time: inputTime, completed: false, id: date, dateCreate: date }
         tasks.push(task)
         setTasks([...tasks])
         setLocalStorage(tasks)
