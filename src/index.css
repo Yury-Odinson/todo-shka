@@ -149,15 +149,16 @@ code {
 .todo-column__deadlineHelp {
   position: absolute;
   top: -15px;
-  left: 10%;
-  font-size: 12px;
+  font-size: 11px;
   color: #00000063;
 }
 
 .todo-item__dateCreate {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  color: #00000063;
 }
 
 .item-button__edit,
@@ -182,12 +183,20 @@ code {
   background-repeat: no-repeat;
 }
 
-.todo-column__Clue {
+.todo-column__Clue,
+.todo-column__doneClue {
   position: absolute;
   top: -10px;
   left: 10px;
   font-size: 14px;
   color: #00000070;
+}
+
+.todo-column__doneClue {
+  top: -7px;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 11px;
 }
 
 .todo-item__date,
@@ -228,8 +237,8 @@ button {
 .customCheckbox {
   position: relative;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 25px;
   height: 25px;
   border-radius: 50%;

@@ -73,6 +73,7 @@ export const TaskElement = (taskProps: { task: Task }) => {
     return (
         <div className={"todo-item" + setEditClass() + setCompletedClass()}>
             <div className="todo-column__isCompleted">
+                <span className="todo-column__doneClue">done</span>
                 <input className="defaultCheckbox" type="checkbox" checked={completed} onChange={() => changeCompleted()} />
                 <div className="customCheckbox" onClick={() => changeCompleted()}></div>
             </div>
@@ -88,13 +89,13 @@ export const TaskElement = (taskProps: { task: Task }) => {
 
 
             <div className="todo-column__deadline">
-                {/* <span className="todo-column__deadlineHelp">must be done before</span> */}
+                <span className="todo-column__deadlineHelp">must be done before</span>
                 <input className="todo-item__date" type="date" value={date} readOnly={readOnly} onChange={(e) => setDate(e.target.value)} />
                 <input className="todo-item__time" type="time" value={time} readOnly={readOnly} onChange={(e) => setTime(e.target.value)} />
             </div>
             <button className="item-button__edit" onClick={() => editTask()} />
             <button className="item-button__remove" onClick={() => removeTask()} />
-            {/* <span className="todo-item__dateCreate">task create: {getTaskDate()}</span> */}
+            <span className="todo-item__dateCreate">task create: {getTaskDate()}</span>
         </div>
     )
 }
