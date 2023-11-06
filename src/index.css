@@ -104,7 +104,16 @@ code {
   background-color: var(--Item);
 }
 
-.todo-header__button {
+.todo-header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.todo-header-nav__button {
+  width: 100px;
+}
+
+.todo-header__buttonLogout {
   width: 80px;
   height: 30px;
   background-color: var(--Button);
