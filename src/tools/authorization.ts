@@ -21,7 +21,7 @@ export const saveTokens = ({ access, refresh }: NewTokens) => {
     localStorage.setItem("tokenRefresh", refresh)
 }
 
-export const checkToken = async (refresh: string) => {
+export const updateToken = async (refresh: string) => {
     const refreshURL = new URL(userRefreshToken)
     const response = await fetch(refreshURL, {
         method: "POST",

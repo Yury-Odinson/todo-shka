@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Task } from "../tools/types";
 import { TaskContext, setLocalStorage, tokenRefresh } from "../tools/store";
-import { checkToken } from "../tools/authorization";
+import { updateToken } from "../tools/authorization";
 
 export const TaskElement = (taskProps: { task: Task }) => {
 
@@ -26,12 +26,14 @@ export const TaskElement = (taskProps: { task: Task }) => {
     const indexOf = tasks.indexOf(taskProps.task)   // declarate index task on the array
 
     const removeTask = () => {
+        updateToken(tokenRefresh)
         tasks.splice(indexOf, 1)
         setTasks([...tasks])
         setLocalStorage(tasks)
     }
 
     const changeCompleted = () => {
+        updateToken(tokenRefresh)
         setCompleted(tasks[indexOf].completed = !completed)
         setTasks(tasks)
         setLocalStorage(tasks)
@@ -55,16 +57,18 @@ export const TaskElement = (taskProps: { task: Task }) => {
         // write changes in the context & update localStorage
         setTasks(tasks)
         setLocalStorage(tasks)
-        checkToken(tokenRefresh)
+        updateToken(tokenRefresh)
     }
 
     const setEditClass = () => {
+        updateToken(tokenRefresh)
         if (!readOnly) {
             return " editItem"
         } else return ""
     }
 
     const setCompletedClass = () => {
+        updateToken(tokenRefresh)
         if (completed) {
             return " completedItem"
         } else return ""

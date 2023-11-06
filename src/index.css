@@ -59,13 +59,25 @@ code {
 .todo-header-wrapper {
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 900px;
   height: 100%;
   background-color: var(--Item);
 }
 
-.todo-heade__buttonAdd {
+.todo-header__button {
+  width: 80px;
+  height: 30px;
   background-color: var(--Button);
+}
+
+.todo-header__button:first-child:hover {
+  background-color: var(--quarterBlue);
+}
+
+.todo-header__button:last-child:hover {
+  background-color: var(--Red);
 }
 
 .new-task-background {
@@ -88,7 +100,6 @@ code {
   background-color: #fff;
   z-index: 2;
 }
-
 
 .todo-item {
   padding: 30px 20px 20px;
@@ -225,9 +236,9 @@ input {
   background-color: #00000000;
 }
 
-
 button {
   border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 
