@@ -1,3 +1,22 @@
+:root {
+  --Backgroung: #F5F5F5;
+  --Button: #F2F2F2;
+  --Item: #D3D3D3;
+  --Red: #FF3B30;
+  --Yellow: #FFCC00;
+  --halfYellow: #ffcc0046;
+  --Green: #4CD964;
+  --quarterBlue: #007bff31;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  transition: 0.2s;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +29,353 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapper {
+  margin: 60px auto;
+  display: flex;
+  max-width: 900px;
+}
+
+.auth-container {
+  margin: 100px auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--Button);
+  border-radius: 10px;
+}
+
+.auth-label {
+  width: 300px;
+}
+
+.auth-label>input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--Item);
+  border-radius: 6px;
+}
+
+.auth-label>button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--quarterBlue);
+  border-radius: 6px;
+}
+
+.HowToUse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 500px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.HowToUse>* {
+  padding: 10px 0;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.todo-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--Item);
+  height: 60px;
+}
+
+.todo-header-wrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  height: 100%;
+  background-color: var(--Item);
+}
+
+.todo-header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.todo-header-nav__button {
+  width: 100px;
+}
+
+.todo-header__buttonLogout {
+  width: 80px;
+  height: 30px;
+  background-color: var(--Button);
+}
+
+.todo-header__button:first-child:hover {
+  background-color: var(--quarterBlue);
+}
+
+.todo-header__button:last-child:hover {
+  background-color: var(--Red);
+}
+
+.new-task-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.new-task {
+  padding: 40px 30px 30px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.new-task__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--Red);
+  background-image: url(./image/icons8-close-50.png);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.new-task-label {
+  position: relative;
+  width: 300px;
+}
+
+.new-task-label>input {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: var(--Backgroung);
+}
+
+.new-task-label>input[type="date"],
+.new-task-label>input[type="time"] {
+  text-align: center;
+}
+
+.new-task__button {
+  background-color: var(--halfYellow);
+  height: 50px;
+  transition: 0.4s;
+}
+
+.new-task__button:hover {
+  background-color: var(--Yellow);
+  transition: 0.4s;
+}
+
+.todo-item {
+  padding: 30px 20px 20px;
+  display: flex;
+}
+
+.todo-item {
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.todo-body {
+  margin: 20px 0;
+  padding: 0 20px;
+  border-radius: 20px;
+  background-color: var(--Button);
+}
+
+.todo-item {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.todo-item:first-child {
+  margin-top: 40px;
+}
+
+.todo-item:last-child {
+  margin-bottom: 40px;
+}
+
+.todo-column__isCompleted {
+  position: relative;
+  width: 5%;
+}
+
+.todo-column__name {
+  position: relative;
+}
+
+.todo-column__name>input {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.todo-column__description {
+  position: relative;
+  width: 55%;
+}
+
+.todo-column__description>input {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.todo-column__deadline {
+  position: relative;
+  width: 20%;
+}
+
+.todo-column__deadlineHelp {
+  position: absolute;
+  top: -15px;
+  font-size: 11px;
+  color: #00000063;
+}
+
+.todo-item__dateCreate {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  color: #00000063;
+}
+
+.item-button__edit,
+.item-button__remove {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--Yellow);
+  background-image: url(./image/icons8-edit-64.png);
+  background-size: cover;
+}
+
+.item-button__remove {
+  right: 5px;
+  background-color: var(--Red);
+  background-image: url(./image/icons8-close-50.png);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todo-column__Clue,
+.todo-column__doneClue {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 14px;
+  color: #00000070;
+}
+
+.todo-column__doneClue {
+  top: -7px;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 11px;
+}
+
+.todo-item__date,
+.todo-item__time {
+  width: 120px;
+  border-radius: 6px;
+}
+
+.todo-item__time {
+  text-align: center;
+}
+
+.editItem {
+  background-color: var(--halfYellow);
+}
+
+.completedItem {
+  background-color: var(--quarterBlue);
+}
+
+input {
+  padding: 0 10px;
+  border: none;
+  border: 1px solid #00000010;
+  background-color: #00000000;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.defaultCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.customCheckbox::before {
+  content: "";
+  position: absolute;
+  background-image: url(./image/icons8-completed-30.png);
+  background-size: 0%;
+  background-repeat: no-repeat;
+  background-color: #FF3B30;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.defaultCheckbox:checked+.customCheckbox::before {
+  background-image: url(./image/icons8-completed-30.png);
+  background-position: center;
+  background-size: 70%;
+  background-color: #4CD964;
+  transition: 0.2s;
 }

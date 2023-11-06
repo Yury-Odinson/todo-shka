@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Auth } from "./components/Auth";
+import { Todo } from "./components/Todo";
+import { TaskContext } from "./tools/store";
+import { useEffect, useState } from "react";
+import { Task } from "./tools/types";
 
 function App() {
+
+  const [tasks, setTasks] = useState<Task[]>([])
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("tasks") || "[]")
+    setTasks(data)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TaskContext.Provider value={{ tasks, setTasks }}>
+
+      <div className="wrapper">
+        <Routes>
+          <Route path="/*" element={<Auth />} />
+          <Route path="/todo" element={<Todo />} />
+        </Routes>
+      </div>
+    </TaskContext.Provider>
   );
 }
 
