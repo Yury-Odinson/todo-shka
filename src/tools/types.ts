@@ -23,3 +23,7 @@ export type ContextTasks = {
     tasks: Task[],
     setTasks: Dispatch<SetStateAction<Task[]>>
 }
+
+export type NewTaskProps = {
+    isOpen: any
+}

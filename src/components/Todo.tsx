@@ -17,7 +17,7 @@ export const Todo = () => {
     return (
         <div className="todo-container">
 
-            {modalOpen && <NewTask />}
+            {modalOpen && <NewTask isOpen={addTask} />}
 
             <div className="todo-header">
                 <div className="todo-header-wrapper">

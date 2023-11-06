@@ -1,7 +1,8 @@
 import { useContext, useState } from "react"
 import { TaskContext, setLocalStorage } from "../tools/store"
+import { NewTaskProps } from "../tools/types"
 
-export const NewTask = () => {
+export const NewTask = ({ isOpen }: NewTaskProps) => {
 
     const [inputName, setInputName] = useState("")
     const [inputDescription, setInputDescription] = useState("")
@@ -17,11 +18,12 @@ export const NewTask = () => {
         tasks.push(task)
         setTasks([...tasks])
         setLocalStorage(tasks)
+        isOpen()
     }
 
     return (
         <>
-            <div className="new-task-background" />
+            <div className="new-task-background" onClick={() => isOpen()} />
             <div className="new-task">
                 <label>
                     <input type="text" placeholder="input name of the task" onChange={(e) => setInputName(e.target.value)} />
