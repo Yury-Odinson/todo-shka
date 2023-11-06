@@ -54,7 +54,6 @@ code {
 .auth-label>input {
   width: 100%;
   height: 40px;
-  /* background-color: #fff; */
   border: 1px solid var(--Item);
   border-radius: 6px;
 }
@@ -201,7 +200,7 @@ code {
 
 .todo-body {
   margin: 20px 0;
-  padding: 10px 20px;
+  padding: 0 20px;
   border-radius: 20px;
   background-color: var(--Button);
 }
@@ -211,6 +210,14 @@ code {
   gap: 10px;
   margin: 20px 0;
   position: relative;
+}
+
+.todo-item:first-child {
+  margin-top: 40px;
+}
+
+.todo-item:last-child {
+  margin-bottom: 40px;
 }
 
 .todo-column__isCompleted {
